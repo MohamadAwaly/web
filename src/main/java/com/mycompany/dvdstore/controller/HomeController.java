@@ -5,6 +5,7 @@ import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,11 +26,18 @@ public class HomeController implements MovieControllerInterface {
         this.movieServiceInterface = movieServiceInterface;
     }
 
-    @RequestMapping( "/home" )
-    public String displayHome( Model model) {
+    @GetMapping( "/home" )
+    public String displayHome( Model model ) {
         System.out.println( "La méthode display home a était invoqué" );
         model.addAttribute( "movies", movieServiceInterface.getMovieList() );
         return "dvdstore-home";
     }
 
+    @GetMapping( "/add-movie-form" )
+    public String displayMovieForm( @ModelAttribute Movie movie ) {
+        System.out.println( "La méthode display Movie Form a était invoqué" );
+        return "add-movie-form";
+    }
+
 }
+
