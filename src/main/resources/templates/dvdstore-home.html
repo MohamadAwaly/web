@@ -14,13 +14,9 @@
 <table border="1">
 
     <tr th:each="movie:${movies}">
-                <td>
-                    <a th:href="${movie.id}" th:text="${movie.id}"/>
-                </td>
-                <td>
-                    <a th:text="${movie.titel}"/>
-                </td>
-                <td th:text="${movie.genre}"></td>
+        <td><a th:href="${movie.id}" th:text="${movie.id}"/></td>
+        <td><a th:text="${movie.titel}"/></td>
+        <td th:text="${movie.genre}"></td>
     </tr>
 </table>
 </body>

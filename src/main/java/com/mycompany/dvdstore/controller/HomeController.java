@@ -1,6 +1,7 @@
 package com.mycompany.dvdstore.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
+import com.mycompany.dvdstore.form.MovieForm;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,7 @@ public class HomeController implements MovieControllerInterface {
     }
 
     @GetMapping( "/add-movie-form" )
-    public String displayMovieForm( @ModelAttribute Movie movie ) {
+    public String displayMovieForm( @ModelAttribute MovieForm movie ) {
         System.out.println( "La méthode display Movie Form a était invoqué" );
         return "add-movie-form";
     }
